@@ -1,50 +1,73 @@
-// src/components/ProfileDisplay.tsx
+
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { getProfileById, updateProfile, deleteProfile } from '../services/profileApi';
-import './ProfileDisplay.css'
+import { useNavigate, useParams } from 'react-router-dom';
+
+interface Profile {
+  name: string;
+  email: string;
+  age: number;
+}
 
 const ProfileDisplay: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const [profile, setProfile] = useState<any | null>(null);
+  const [profileData, setProfileData] = useState<Profile | null>(null); 
+  const { id } = useParams();
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchProfile = async () => {
-      if (id) {
-        const data = await getProfileById(id);
-        setProfile(data);
+      if (!id) return; 
+
+      try {
+        console.log('Fetching profile with ID:', id); 
+        const response = await fetch(`/.netlify/functions/profile/${id}`); 
+        const data = await response.json();
+        console.log('Fetched profile data:', data);
+
+        if (data && data.profile) {
+          setProfileData(data.profile); 
+        } else {
+          console.error('Profile data not found or is empty');
+        }
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
       }
     };
 
     fetchProfile();
   }, [id]);
 
-  const handleDelete = async () => {
-    if (id) {
-      await deleteProfile(id); // Delete the profile by ID
-      navigate('/');  // Navigate to home after deletion
-    }
-  };
-
-  const handleEdit = () => {
-    navigate(`/profile/edit/${id}`);  // Navigate to edit page
-  };
-
-  if (!profile) {
+  
+  if (profileData === null) {
     return <div>Loading...</div>;
   }
 
-  return (
-    <div>
-      <h3>Profile Details</h3>
-      <p>Name: {profile.name}</p>
-      <p>Email: {profile.email}</p>
-      <p>Age: {profile.age}</p>
-     
+ 
+  const handleEdit = () => {
+    navigate(`/edit-profile/${id}`);
+  };
 
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+  const handleDelete = async () => {
+    try {
+      await fetch(`/.netlify/functions/profile/${id}`, {
+        method: 'DELETE', 
+      });
+      navigate('/profiles'); 
+    } catch (error) {
+      console.error('Error deleting profile:', error);
+    }
+  };
+
+  return (
+    <div className="profile-display-container">
+      <h2>Profile Details</h2>
+      <p><strong>Name:</strong> {profileData.name}</p>
+      <p><strong>Email:</strong> {profileData.email}</p>
+      <p><strong>Age:</strong> {profileData.age}</p>
+
+      <div className="profile-actions">
+        <button onClick={handleEdit} className="edit-btn">Edit</button>
+        <button onClick={handleDelete} className="delete-btn">Delete</button>
+      </div>
     </div>
   );
 };

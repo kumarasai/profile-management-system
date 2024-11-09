@@ -5,6 +5,7 @@ import { ProfileProvider } from './context/ProfileContext';
 import ProfileList from './components/ProfileList';
 import ProfileForm from './components/ProfileForm';
 import ProfileDisplay from './components/ProfileDisplay';
+import NotFound from './components/NotFound';
 
 const App: React.FC = () => {
   return (
@@ -14,8 +15,9 @@ const App: React.FC = () => {
           <Route path="/" element={<ProfileList />} />
           <Route path="/create" element={<ProfileForm />} />
           <Route path="/profile/:id" element={<ProfileDisplay />} />
-          {/* Add route for editing profiles */}
+          
           <Route path="/profile/edit/:id" element={<ProfileForm />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       
     </ProfileProvider>

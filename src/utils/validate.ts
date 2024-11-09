@@ -1,4 +1,4 @@
-// src/utils/validate.ts
+
 
 export const validateName = (name: string): string => {
     if (!name) return 'Name is required.';
@@ -17,4 +17,3 @@ export const validateName = (name: string): string => {
     if (age && isNaN(age)) return 'Age must be a number.';
     return '';
   };
-  
