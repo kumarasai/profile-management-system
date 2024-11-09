@@ -10,7 +10,7 @@ const handler = (req: NowRequest, res: NowResponse) => {
   server.use(middlewares);
   server.use(router);
 
-  createServer(server).listen(5000, () => {
+  createServer(server).listen(3000, () => {
     console.log('JSON Server is running');
   });
 };
