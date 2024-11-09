@@ -1,0 +1,65 @@
+.header {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    left: 33%;
+    background-color: rgb(92 37 213);
+    padding: 10px;
+    text-align: center;
+    color: rgb(240 248 255);
+    font-weight: 500;
+    border-radius: 20px;
+}
+header :hover{
+    
+    
+    cursor: pointer;
+    text-decoration:underline;
+}
+.list-style{
+    display: flex;
+    padding:15px;
+    background-color: rgb(224 237 249);
+    border-radius: 20px;
+    fill-opacity: 20%;
+    
+
+    
+}
+
+.list-style a {
+
+    list-style: none;
+    text-decoration: none;
+    font-weight: 600;
+    
+    padding: 10px;
+    
+    
+}
+
+    
+button{
+    padding: 5px;
+    background-color: #6a11cb;
+    
+}
+.button-edit a {
+list-style: none;
+text-decoration: none;
+color: white;
+
+}
+
+.profile-list{
+    padding: 20px;
+}
+.profile-list-main{
+    width:500px;
+    height:auto;
+    background-color: aliceblue;
+    border-radius: 50px;
+}
+.profile-list-main h3{
+    color: #6a11cb;
+}

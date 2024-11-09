@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ProfileProvider } from './context/ProfileContext';
+import ProfileList from './components/ProfileList';
+import ProfileForm from './components/ProfileForm';
+import ProfileDisplay from './components/ProfileDisplay';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProfileProvider>
+      
+        <Routes>
+          <Route path="/" element={<ProfileList />} />
+          <Route path="/create" element={<ProfileForm />} />
+          <Route path="/profile/:id" element={<ProfileDisplay />} />
+          {/* Add route for editing profiles */}
+          <Route path="/profile/edit/:id" element={<ProfileForm />} />
+        </Routes>
+      
+    </ProfileProvider>
   );
-}
+};
 
 export default App;

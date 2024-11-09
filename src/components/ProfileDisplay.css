@@ -1,0 +1,108 @@
+/* ProfileDisplay.css */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: white;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  h2 {
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .profile-details div {
+    display: flex;
+    justify-content: space-between;
+   
+  }
+  
+  .profile-details span {
+    
+    color: #333;
+  }
+  
+  .profile-details p {
+    font-size: 0.5rem;
+    color: #555;
+  }
+  
+  button {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    border: none;
+    padding: 5px 7px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 48%;
+    margin: 10px 1%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 1.6rem;
+    }
+  
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  p{
+    font-size: small;
+  }
