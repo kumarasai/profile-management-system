@@ -1,12 +1,6 @@
 {
   "profiles": [
     {
-      "name": "sass",
-      "email": "saa@wfev",
-      "age": "32",
-      "id": "32bd"
-    },
-    {
       "name": "qwert",
       "email": "qwert@gmail.com",
       "age": "21",
