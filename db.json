@@ -1,16 +1,10 @@
 {
   "profiles": [
     {
-      "name": "qwert",
-      "email": "qwert@gmail.com",
-      "age": "21",
-      "id": "c270"
-    },
-    {
-      "id": "5253",
-      "name": "saiiiiii",
-      "email": "123@wer",
-      "age": "23"
+      "name": "sai",
+      "email": "sai@gmail.com",
+      "age": "23",
+      "id": "8a0d"
     }
   ]
 }
